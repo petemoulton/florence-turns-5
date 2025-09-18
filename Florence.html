@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Florence turns 5 — RSVP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --blush:#FFF6FB;--pink:#FFD9EF;--sky:#D9E7FF;--mint:#DFF7E7;--ink:#3A2E52;
+      --radius:24px;
+    }
+    *{box-sizing:border-box} body{margin:0;background:linear-gradient(135deg,var(--blush),var(--sky));
+      font-family:Nunito,system-ui,-apple-system,Segoe UI,Roboto,Arial;color:var(--ink);}
+    .wrap{max-width:760px;margin:0 auto;padding:28px}
+    .card{background:white;border-radius:var(--radius);padding:28px;box-shadow:0 8px 24px rgba(58,46,82,.08);position:relative;overflow:hidden}
+    h1{font-family:Pacifico,cursive;font-size:42px;margin:0 0 8px}
+    .sub{font-weight:700;letter-spacing:.3px;margin-bottom:14px}
+    .pill{display:inline-block;padding:10px 16px;border-radius:999px;background:var(--mint);font-weight:700}
+    .grid{display:grid;gap:14px}
+    .detail{background:var(--pink);padding:12px 14px;border-radius:14px}
+    .btn{display:inline-block;margin-top:12px;padding:12px 18px;border-radius:999px;background:var(--sky);text-decoration:none;font-weight:700}
+    .sparkle{position:absolute;inset:-40px;pointer-events:none}
+    .sparkle span{position:absolute;width:8px;height:8px;background:var(--pink);border-radius:2px;opacity:.7;animation:float 6s linear infinite}
+    @keyframes float{0%{transform:translateY(0) rotate(0)}100%{transform:translateY(-120px) rotate(180deg)}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="sparkle">
+        <span style="top:80%;left:10%"></span><span style="top:85%;left:30%"></span>
+        <span style="top:88%;left:55%"></span><span style="top:82%;left:80%"></span>
+      </div>
+      <h1>Florence turns 5 ✨🦄</h1>
+      <div class="sub">Sat 18 Oct · 11:30am–1:00pm</div>
+      <div class="pill">SuperZu — Princess Room</div>
+      <p style="margin-top:12px">362 Boundary Rd, Dingley Village VIC</p>
+
+      <div class="grid" style="margin:14px 0 18px">
+        <div class="detail">Bring socks 👟 · Parking on-site · Gifts optional</div>
+        <div class="detail">Only 13 spots — please RSVP early</div>
+      </div>
+
+      <!-- 👉 Replace with your Tally embed (set response limit=13 + waitlist message) -->
+      <iframe src="https://tally.so/embed/YOUR_FORM_ID?transparentBackground=1&hideTitle=1"
+              width="100%" height="420" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+
+      <a class="btn" href="florence-birthday-2025.ics">Add to Calendar</a>
+      <a class="btn" href="https://maps.apple.com/?q=SuperZu%20362%20Boundary%20Road%20Dingley%20Village">Open in Maps</a>
+    </div>
+  </div>
+</body>
+</html>

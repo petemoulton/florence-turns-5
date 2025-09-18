@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Florence's Magical 5th Birthday Party! 🦄</title>
+    <meta name="description" content="You're invited to Florence's 5th birthday party! Join us for a magical celebration at SuperZu on October 18th.">
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Fredoka', sans-serif;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 800"><defs><linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23FF69B4" /><stop offset="25%" style="stop-color:%237C9BF2" /><stop offset="50%" style="stop-color:%23C66FD2" /><stop offset="75%" style="stop-color:%23FFB3D9" /><stop offset="100%" style="stop-color:%23FFEAA7" /></linearGradient></defs><rect fill="url(%23bg)" width="1440" height="800"/><circle cx="200" cy="150" r="80" fill="%23FF1493" opacity="0.4"/><circle cx="1200" cy="300" r="100" fill="%234169E1" opacity="0.4"/><circle cx="600" cy="600" r="120" fill="%23DA70D6" opacity="0.3"/><path d="M0,400 Q360,300 720,400 T1440,400" stroke="%23FF69B4" stroke-width="4" fill="none" opacity="0.5"/><path d="M0,450 Q360,350 720,450 T1440,450" stroke="%237B68EE" stroke-width="4" fill="none" opacity="0.5"/><circle cx="100" cy="100" r="30" fill="%23FFD700" opacity="0.6"/><circle cx="1300" cy="700" r="40" fill="%23FF69B4" opacity="0.5"/><polygon points="800,100 820,140 780,140" fill="%2300CED1" opacity="0.4"/><polygon points="400,500 420,540 380,540" fill="%23FF1493" opacity="0.4"/></svg>');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+
+        /* Floating Creature Emojis */
+        .creature-emoji {
+            position: absolute;
+            font-size: 50px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            z-index: 5;
+            user-select: none;
+            will-change: transform;
+        }
+
+        .creature-emoji:hover {
+            transform: scale(1.2);
+        }
+
+        .creature-1 {
+            top: 15%;
+            left: 20%;
+            animation: floatSlow 20s infinite ease-in-out;
+        }
+
+        .creature-2 {
+            top: 20%;
+            right: 25%;
+            font-size: 60px;
+            animation: floatFast 15s infinite ease-in-out;
+        }
+
+        .creature-3 {
+            top: 40%;
+            left: 65%;
+            font-size: 45px;
+            animation: bounce 3s infinite ease-in-out;
+        }
+
+        .creature-4 {
+            top: 50%;
+            left: 25%;
+            font-size: 55px;
+            animation: wiggle 2.5s infinite ease-in-out;
+        }
+
+        .creature-5 {
+            top: 60%;
+            right: 30%;
+            animation: floatSlow 18s infinite ease-in-out;
+        }
+
+        .creature-6 {
+            top: 35%;
+            left: 40%;
+            font-size: 48px;
+            animation: bounce 3.5s infinite ease-in-out;
+        }
+
+        .creature-7 {
+            top: 70%;
+            right: 20%;
+            font-size: 52px;
+            animation: wiggle 3s infinite ease-in-out;
+        }
+
+        .creature-8 {
+            top: 25%;
+            left: 50%;
+            font-size: 50px;
+            animation: floatFast 12s infinite ease-in-out;
+        }
+
+        .creature-9 {
+            top: 45%;
+            right: 35%;
+            font-size: 55px;
+            animation: bounce 4s infinite ease-in-out;
+        }
+
+        .creature-10 {
+            top: 55%;
+            left: 45%;
+            font-size: 48px;
+            animation: wiggle 3.5s infinite ease-in-out;
+        }
+
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translate(0, 0); }
+            33% { transform: translate(30px, -30px); }
+            66% { transform: translate(-20px, 20px); }
+        }
+
+        @keyframes floatFast {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-40px, -20px); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-30px); }
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        /* Floating Elements */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .sparkle, .star {
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .sparkle {
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            animation: sparkle 3s linear infinite;
+        }
+
+        .star {
+            font-size: 20px;
+            animation: starFloat 4s linear infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes sparkle {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        @keyframes starFloat {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-10vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(255, 182, 193, 0.3);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 182, 193, 0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        h1 {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            background: linear-gradient(45deg, #FF6B9D, #C66FD2, #7C9BF2, #66D2E8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            animation: rainbow 5s ease infinite;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes rainbow {
+            0%, 100% { filter: hue-rotate(0deg); }
+            50% { filter: hue-rotate(180deg); }
+        }
+
+        .turning-five {
+            font-size: 2.5rem;
+            color: #FF6B9D;
+            font-weight: 600;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Event Details Card */
+        .event-card {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .event-card::after {
+            content: '✨';
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            font-size: 30px;
+            animation: wiggle 2s infinite;
+        }
+
+        .detail-row {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            padding: 15px;
+            background: linear-gradient(135deg, #FFF0F5 0%, #F0F8FF 100%);
+            border-radius: 15px;
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .detail-row:hover {
+            transform: translateX(5px);
+        }
+
+        .detail-icon {
+            font-size: 30px;
+            margin-right: 15px;
+        }
+
+        .detail-text {
+            flex: 1;
+        }
+
+        .detail-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 3px;
+        }
+
+        .detail-value {
+            font-size: 1.2rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        /* Countdown Timer */
+        .countdown {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.5) 0%, rgba(118, 75, 162, 0.5) 100%);
+            backdrop-filter: blur(10px);
+            color: white;
+            border-radius: 20px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .countdown-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .countdown-boxes {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+
+        .countdown-box {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 15px;
+            min-width: 80px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s;
+        }
+
+        .countdown-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .countdown-number {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .countdown-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        /* RSVP Section */
+        .rsvp-section {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .spots-counter {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 1.2rem;
+            position: relative;
+        }
+
+        .spots-remaining {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+            margin: 10px 0;
+        }
+
+        /* Form Styles */
+        .rsvp-form {
+            display: grid;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: grid;
+            gap: 8px;
+        }
+
+        label {
+            font-weight: 600;
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #E0E0E0;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #FF6B9D;
+            box-shadow: 0 0 0 3px rgba(255, 107, 157, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .creature-emoji {
+                font-size: 30px !important;
+            }
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #FF6B9D 0%, #C66FD2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            background: white;
+            color: #333;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .action-btn.primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        /* Fun Facts */
+        .fun-facts {
+            background: linear-gradient(135deg, #FFEEF8 0%, #F0F7FF 25%, #FFF0FF 50%, #FFEEF8 75%, #FFFEF0 100%);
+            border-radius: 25px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .fact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px 0;
+            padding: 15px;
+            background: linear-gradient(135deg, rgba(255, 234, 167, 0.95) 0%, rgba(253, 203, 110, 0.95) 100%);
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .fact-item:hover {
+            transform: scale(1.02);
+        }
+
+        .fact-icon {
+            font-size: 30px;
+            margin-right: 15px;
+        }
+
+        /* Map Container */
+        .map-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 30px auto;
+            max-width: 800px;
+            box-shadow: 0 10px 30px rgba(198, 111, 210, 0.15);
+            border: 2px solid #FFE5F1;
+        }
+
+        .map-container h3 {
+            color: #C66FD2;
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(198, 111, 210, 0.2);
+        }
+
+        .map-iframe {
+            width: 100%;
+            height: 350px;
+            border-radius: 15px;
+            border: 3px solid #FFE5F1;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .loading.active {
+            display: block;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(255, 107, 157, 0.3);
+            border-top-color: #FF6B9D;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .success-message.active {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #666;
+            position: relative;
+        }
+
+        .made-with-love {
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+
+        /* Confetti burst outward */
+        .confetti-particle {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            pointer-events: none;
+            z-index: 10000;
+        }
+
+        @keyframes confetti-pop {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Elements -->
+    <div class="floating-elements" id="floatingElements"></div>
+
+    <!-- Floating Creatures -->
+    <div class="creature-emoji creature-1" data-creature="unicorn">🦄</div>
+    <div class="creature-emoji creature-2" data-creature="butterfly">🦋</div>
+    <div class="creature-emoji creature-3" data-creature="fairy">🧚‍♀️</div>
+    <div class="creature-emoji creature-4" data-creature="rainbow">🌈</div>
+    <div class="creature-emoji creature-5" data-creature="unicorn2">🦄</div>
+    <div class="creature-emoji creature-6" data-creature="star">⭐</div>
+    <div class="creature-emoji creature-7" data-creature="butterfly2">🦋</div>
+    <div class="creature-emoji creature-8" data-creature="sparkles">✨</div>
+    <div class="creature-emoji creature-9" data-creature="unicorn3">🦄</div>
+    <div class="creature-emoji creature-10" data-creature="rainbow2">🌈</div>
+
+    <!-- Extra Unicorn -->
+    <div class="creature-emoji creature-11" data-creature="unicorn4" style="position: fixed; top: 25%; left: 15%; font-size: 65px; z-index: 10; animation: floatSlow 22s infinite ease-in-out;">
+        🦄
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Florence's Magical Birthday Party!</h1>
+            <div class="turning-five">Turning 5! 🎂</div>
+        </div>
+
+        <!-- Countdown Timer -->
+        <div class="countdown">
+            <div class="countdown-title">🎉 Party Countdown 🎉</div>
+            <div class="countdown-boxes" id="countdown">
+                <div class="countdown-box">
+                    <span class="countdown-number" id="days">00</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-box">
+                    <span class="countdown-number" id="hours">00</span>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-box">
+                    <span class="countdown-number" id="minutes">00</span>
+                    <span class="countdown-label">Minutes</span>
+                </div>
+                <div class="countdown-box">
+                    <span class="countdown-number" id="seconds">00</span>
+                    <span class="countdown-label">Seconds</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Event Details -->
+        <div class="event-card">
+            <div class="detail-row">
+                <div class="detail-icon">📅</div>
+                <div class="detail-text">
+                    <div class="detail-label">When</div>
+                    <div class="detail-value">Saturday, 18th October 2025</div>
+                </div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-icon">⏰</div>
+                <div class="detail-text">
+                    <div class="detail-label">Time</div>
+                    <div class="detail-value">11:30 AM - 1:00 PM</div>
+                </div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-icon">📍</div>
+                <div class="detail-text">
+                    <div class="detail-label">Where</div>
+                    <div class="detail-value">SuperZu - Princess Room</div>
+                    <div style="color: #888; font-size: 0.9rem; margin-top: 5px;">362 Boundary Road, Dingley Village VIC 3172</div>
+                </div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-icon">👟</div>
+                <div class="detail-text">
+                    <div class="detail-label">Don't Forget</div>
+                    <div class="detail-value">Bring your socks!</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <a href="#" class="action-btn primary" onclick="addToCalendar(); return false;">
+                📅 Add to Calendar
+            </a>
+            <a href="https://maps.apple.com/?q=SuperZu%20362%20Boundary%20Road%20Dingley%20Village" class="action-btn" target="_blank">
+                🗺️ Get Directions
+            </a>
+            <a href="tel:0425658042" class="action-btn">
+                📱 Call or SMS Adelaide<br>
+                <span style="font-size: 14px; font-weight: normal;">0425 658 042</span>
+            </a>
+        </div>
+
+        <!-- RSVP Section -->
+        <div class="rsvp-section">
+            <h2 style="text-align: center; color: #FF6B9D; margin-bottom: 20px; font-size: 2rem;">RSVP Here! 🎈</h2>
+
+            <div class="spots-counter">
+                Limited to 13 special friends!
+                <span class="spots-remaining" id="spotsRemaining">13</span>
+                spots remaining
+            </div>
+
+            <div id="successMessage" class="success-message">
+                🎉 Yay! You're coming to Florence's party! We'll send you a confirmation email shortly.
+            </div>
+
+            <!-- FormSubmit sends RSVPs to Peter (for testing) -->
+            <!-- IMPORTANT: First submission requires clicking verification email! -->
+            <form id="rsvpForm" class="rsvp-form" action="https://formsubmit.co/peter@mfo.is" method="POST">
+                <!-- FormSubmit Configuration -->
+                <input type="hidden" name="_subject" value="New RSVP for Florence's 5th Birthday Party 🦄">
+                <input type="hidden" name="_autoresponse" value="Thank you for RSVPing to Florence's party! We're excited to see you on October 18th at SuperZu. Don't forget to bring socks for the play area!">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://petemoulton.github.io/florence-turns-5#thank-you">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="childName">Child's Name *</label>
+                        <input type="text" id="childName" name="childName" required placeholder="e.g., Emma">
+                    </div>
+                    <div class="form-group">
+                        <label for="childAge">Child's Age</label>
+                        <input type="number" id="childAge" name="childAge" min="3" max="7" placeholder="5">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="parentName">Parent's Name *</label>
+                        <input type="text" id="parentName" name="parentName" required placeholder="e.g., Sarah Smith">
+                    </div>
+                    <div class="form-group">
+                        <label for="parentPhone">Phone Number *</label>
+                        <input type="tel" id="parentPhone" name="parentPhone" required placeholder="0400 000 000">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="parentEmail">Email Address *</label>
+                    <input type="email" id="parentEmail" name="parentEmail" required placeholder="parent@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="attendance">Will you be attending? *</label>
+                    <select id="attendance" name="attendance" required>
+                        <option value="">Please select...</option>
+                        <option value="yes">Yes, we'll be there! 🎉</option>
+                        <option value="no">Sorry, can't make it 😔</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="dietary">Dietary Requirements / Allergies</label>
+                    <textarea id="dietary" name="dietary" placeholder="Please let us know about any allergies or dietary requirements"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Special Message for Florence (Optional)</label>
+                    <textarea id="message" name="message" placeholder="Write a birthday message for Florence! 🦄"></textarea>
+                </div>
+
+                <div class="loading" id="loadingSpinner">
+                    <div class="loading-spinner"></div>
+                    <p style="margin-top: 10px;">Sending your RSVP...</p>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    Send RSVP 🌈
+                </button>
+
+                <!-- Inline success notification -->
+                <div id="inlineSuccess" style="display: none; text-align: center; margin-top: 15px; padding: 15px; background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%); border-radius: 15px; color: white; font-weight: 600;">
+                    ✅ RSVP Sent! Check your email for confirmation.
+                </div>
+
+                <p style="text-align: center; margin-top: 15px; color: #999; font-size: 12px;">
+                    🔒 Secure form - RSVPs sent directly to party organizers
+                </p>
+            </form>
+        </div>
+
+        <!-- Fun Facts -->
+        <div class="fun-facts">
+            <h2 style="text-align: center; color: #FF6B9D; margin-bottom: 20px;">Party Info for Parents 👨‍👩‍👧</h2>
+
+            <div class="fact-item">
+                <div class="fact-icon">🚗</div>
+                <div>Free parking available on-site</div>
+            </div>
+
+            <div class="fact-item">
+                <div class="fact-icon">🎁</div>
+                <div>Gifts are optional - your presence is the best present!</div>
+            </div>
+
+            <div class="fact-item">
+                <div class="fact-icon">🍰</div>
+                <div>Food and cake will be provided</div>
+            </div>
+
+            <div class="fact-item">
+                <div class="fact-icon">👟</div>
+                <div>Socks are required for the play area</div>
+            </div>
+
+            <div class="fact-item">
+                <div class="fact-icon">📸</div>
+                <div>Photos will be shared after the party</div>
+            </div>
+        </div>
+
+        <!-- Map Component -->
+        <div class="map-container">
+            <h3>🗺️ Find the Party!</h3>
+            <iframe
+                class="map-iframe"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d800!2d145.1228!3d-37.8361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s362%20Boundary%20Road%2C%20Dingley%20Village%20VIC%203172!5e0!3m2!1sen!2sau!4v1234567890!5m2!1sen!2sau"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <p style="text-align: center; margin-top: 15px; color: #666;">
+                <strong>SuperZu Princess Room</strong><br>
+                362 Boundary Road, Dingley Village VIC 3172<br>
+                <a href="https://maps.google.com/?q=SuperZu+Dingley+Village,+362+Boundary+Road,+Dingley+Village+VIC+3172"
+                   target="_blank"
+                   style="color: #C66FD2; text-decoration: none; font-weight: bold;">
+                   📍 Get Directions
+                </a>
+            </p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="made-with-love">
+                Made with 💖 for Florence's 5th Birthday<br>
+                RSVP by Friday, 10th October<br>
+                Questions? Call Adelaide: 0425 658 042
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create floating sparkles and stars
+        function createFloatingElements() {
+            const container = document.getElementById('floatingElements');
+
+            // Create sparkles
+            for (let i = 0; i < 15; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.animationDelay = Math.random() * 3 + 's';
+                sparkle.style.animationDuration = (3 + Math.random() * 4) + 's';
+                container.appendChild(sparkle);
+            }
+
+            // Create star emojis
+            const stars = ['⭐', '✨', '🌟', '💫'];
+            for (let i = 0; i < 10; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.textContent = stars[Math.floor(Math.random() * stars.length)];
+                star.style.left = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 4 + 's';
+                star.style.animationDuration = (4 + Math.random() * 3) + 's';
+                container.appendChild(star);
+            }
+        }
+
+        // Make creatures face cursor
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+
+            // Make all creatures face the cursor
+            const creatures = document.querySelectorAll('.creature-emoji');
+            creatures.forEach(creature => {
+                const rect = creature.getBoundingClientRect();
+                const creatureX = rect.left + rect.width / 2;
+                const creatureY = rect.top + rect.height / 2;
+
+                // Calculate angle to cursor
+                const angle = Math.atan2(mouseY - creatureY, mouseX - creatureX);
+                const degrees = angle * 180 / Math.PI;
+
+                // Apply rotation to face cursor (adding to existing animation)
+                const baseTransform = creature.style.transform || '';
+                creature.style.transform = `${baseTransform} rotate(${degrees}deg)`;
+            });
+        });
+
+        // Create outward confetti burst at click location
+        function createConfettiBurst(x, y) {
+            const colors = ['#FF6B9D', '#C66FD2', '#7C9BF2', '#66D2E8', '#FFEAA7', '#84fab0'];
+            const particleCount = 30;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'confetti-particle';
+                particle.style.left = x + 'px';
+                particle.style.top = y + 'px';
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+
+                // Random angle for each particle
+                const angle = (Math.PI * 2 * i) / particleCount + Math.random() * 0.5;
+                const velocity = 50 + Math.random() * 100; // Random speed
+                const size = 5 + Math.random() * 10;
+
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+
+                // Calculate end position
+                const endX = Math.cos(angle) * velocity;
+                const endY = Math.sin(angle) * velocity;
+
+                // Animate the particle
+                particle.style.animation = 'confetti-pop 1s ease-out forwards';
+                particle.style.transform = `translate(${endX}px, ${endY}px) rotate(${Math.random() * 360}deg)`;
+                particle.style.transition = 'transform 1s ease-out';
+
+                document.body.appendChild(particle);
+
+                // Start animation
+                setTimeout(() => {
+                    particle.style.transform = `translate(${endX}px, ${endY}px) rotate(${Math.random() * 720}deg) scale(0)`;
+                }, 10);
+
+                // Remove particle after animation
+                setTimeout(() => particle.remove(), 1000);
+            }
+        }
+
+        // Add click listener to creatures
+        document.querySelectorAll('.creature-emoji').forEach(creature => {
+            creature.addEventListener('click', function(e) {
+                e.stopPropagation();
+
+                // Get click position
+                const rect = this.getBoundingClientRect();
+                const x = rect.left + rect.width / 2;
+                const y = rect.top + rect.height / 2;
+
+                // Create confetti burst from creature center
+                createConfettiBurst(x, y);
+
+                // Make creature do a happy dance
+                this.style.transition = 'transform 0.5s';
+                this.style.transform = 'scale(1.5) rotate(360deg)';
+
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 500);
+
+                // Create emoji burst too
+                const emojis = ['🌈', '⭐', '✨', '💖', '🎉', '🎊'];
+                emojis.forEach((emoji, index) => {
+                    const emojiEl = document.createElement('div');
+                    emojiEl.style.position = 'fixed';
+                    emojiEl.style.left = x + 'px';
+                    emojiEl.style.top = y + 'px';
+                    emojiEl.textContent = emoji;
+                    emojiEl.style.fontSize = '30px';
+                    emojiEl.style.zIndex = '10000';
+                    emojiEl.style.pointerEvents = 'none';
+
+                    const angle = (Math.PI * 2 * index) / emojis.length;
+                    const distance = 100;
+                    const endX = Math.cos(angle) * distance;
+                    const endY = Math.sin(angle) * distance;
+
+                    emojiEl.style.transition = 'all 1s ease-out';
+                    document.body.appendChild(emojiEl);
+
+                    setTimeout(() => {
+                        emojiEl.style.transform = `translate(${endX}px, ${endY}px) scale(0) rotate(360deg)`;
+                        emojiEl.style.opacity = '0';
+                    }, 10);
+
+                    setTimeout(() => emojiEl.remove(), 1000);
+                });
+            });
+        });
+
+        // Add click listener to document for general clicks
+        document.addEventListener('click', function(e) {
+            // Don't create confetti if clicking on interactive elements
+            if (e.target.tagName === 'A' ||
+                e.target.tagName === 'BUTTON' ||
+                e.target.tagName === 'INPUT' ||
+                e.target.tagName === 'TEXTAREA' ||
+                e.target.tagName === 'SELECT' ||
+                e.target.classList.contains('creature-emoji')) {
+                return;
+            }
+
+            createConfettiBurst(e.clientX, e.clientY);
+        });
+
+        // Countdown Timer
+        function updateCountdown() {
+            const partyDate = new Date('2025-10-18T11:30:00+11:00').getTime();
+            const now = new Date().getTime();
+            const distance = partyDate - now;
+
+            if (distance > 0) {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('days').textContent = String(days).padStart(2, '0');
+                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+            } else {
+                document.querySelector('.countdown-title').textContent = '🎉 Party Time! 🎉';
+            }
+        }
+
+        // Update spots remaining
+        function updateSpotsRemaining() {
+            const rsvps = JSON.parse(localStorage.getItem('florenceRSVPs') || '[]');
+            const spotsUsed = rsvps.filter(r => r.attendance === 'yes').length;
+            const spotsLeft = Math.max(0, 13 - spotsUsed);
+
+            document.getElementById('spotsRemaining').textContent = spotsLeft;
+
+            if (spotsLeft === 0) {
+                document.querySelector('.spots-counter').innerHTML =
+                    '<strong>Party is full!</strong><br>Join the waitlist below';
+                document.querySelector('.spots-counter').style.background =
+                    'linear-gradient(135deg, #ff6b6b 0%, #ffa502 100%)';
+            }
+        }
+
+        // Handle RSVP Form Submission - Show success near button
+        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+            // Let FormSubmit handle the actual submission
+
+            // Show inline success message
+            const submitBtn = document.getElementById('submitBtn');
+            const inlineSuccess = document.getElementById('inlineSuccess');
+
+            // Update button to show sending
+            submitBtn.innerHTML = 'Sending... 📧';
+            submitBtn.style.opacity = '0.7';
+
+            // Show success after short delay
+            setTimeout(() => {
+                inlineSuccess.style.display = 'block';
+                submitBtn.innerHTML = '✅ Sent!';
+            }, 1000);
+
+            // Form will actually submit to FormSubmit now!
+        });
+
+        // Add to Calendar function
+        function addToCalendar() {
+            const event = {
+                title: "Florence's 5th Birthday Party",
+                location: "SuperZu Princess Room, 362 Boundary Road, Dingley Village VIC 3172",
+                description: "Join us for Florence's magical 5th birthday celebration! Don't forget to bring socks.",
+                start: "20251018T113000",
+                end: "20251018T130000"
+            };
+
+            const icsContent = `BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+SUMMARY:${event.title}
+DTSTART:${event.start}
+DTEND:${event.end}
+LOCATION:${event.location}
+DESCRIPTION:${event.description}
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+END:VCALENDAR`;
+
+            const blob = new Blob([icsContent], { type: 'text/calendar' });
+            const url = window.URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'florence-birthday-party.ics';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // Initialize
+        createFloatingElements();
+        updateCountdown();
+        updateSpotsRemaining();
+        setInterval(updateCountdown, 1000);
+
+        // Easter egg: Konami code for unicorn parade
+        let konamiCode = [];
+        const konamiPattern = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+
+        document.addEventListener('keydown', (e) => {
+            konamiCode.push(e.key);
+            konamiCode = konamiCode.slice(-10);
+
+            if (JSON.stringify(konamiCode) === JSON.stringify(konamiPattern)) {
+                // Trigger confetti everywhere!
+                for (let i = 0; i < 10; i++) {
+                    setTimeout(() => {
+                        createConfettiBurst(
+                            Math.random() * window.innerWidth,
+                            Math.random() * window.innerHeight
+                        );
+                    }, i * 100);
+                }
+                konamiCode = [];
+            }
+        });
+
+        console.log('🦄 Click creatures for magical confetti bursts!');
+        console.log('🎨 Click anywhere for confetti!');
+        console.log('💡 Try the Konami code: ↑↑↓↓←→←→BA');
+        console.log('📊 View RSVPs: localStorage.getItem("florenceRSVPs")');
+    </script>
+</body>
+</html>

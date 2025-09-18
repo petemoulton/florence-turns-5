@@ -770,11 +770,12 @@
                 🎉 Yay! You're coming to Florence's party! We'll send you a confirmation email shortly.
             </div>
 
-            <!-- FormSubmit sends RSVPs to Peter (for testing) -->
-            <!-- IMPORTANT: First submission requires clicking verification email! -->
-            <form id="rsvpForm" class="rsvp-form" action="https://formsubmit.co/peter@mfo.is" method="POST">
+            <!-- FormSubmit sends RSVPs to Adelaide with Peter CC'd -->
+            <!-- IMPORTANT: Adelaide needs to verify her email on first submission -->
+            <form id="rsvpForm" class="rsvp-form" action="https://formsubmit.co/adelaidecochrane@gmail.com" method="POST">
                 <!-- FormSubmit Configuration -->
                 <input type="hidden" name="_subject" value="New RSVP for Florence's 5th Birthday Party 🦄">
+                <input type="hidden" name="_cc" value="peter@mfo.is">
                 <input type="hidden" name="_autoresponse" value="Thank you for RSVPing to Florence's party! We're excited to see you on October 18th at SuperZu. Don't forget to bring socks for the play area!">
                 <input type="hidden" name="_template" value="table">
                 <input type="hidden" name="_captcha" value="false">
